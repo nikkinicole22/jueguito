@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jueguito</title>
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+    <div class="fondo fondo-uno"></div>
+    <div class="fondo fondo-dos"></div>
+
+    <main class="contenedor">
+        <header class="encabezado">
+            <div class="logo">Q</div>
+            <div>
+                <h1>Quiz</h1>
+                <p>Aprende jugando</p>
+            </div>
+        </header>
+
+        <section id="pantalla-inicio" class="pantalla">
+            <span class="etiqueta">✦ RETO DE CONOCIMIENTOS</span>
+            <h2>¡Pon a prueba tus <span>conocimientos!</span></h2>
+            <p class="descripcion">
+                Responde y demuestra cuánto sabes.
+            </p>
+
+            <label for="nombre">¿Cómo te llamas?</label>
+            <input
+                type="text"
+                id="nombre"
+                maxlength="25"
+                placeholder="Escribe tu nombre..."
+                autocomplete="off"
+            >
+
+            <label for="categoria">Elige una categoría</label>
+            <select id="categoria">
+                <option value="todas">Todas las categorías</option>
+                <option value="ciencia">Ciencia</option>
+                <option value="matematicas">Matemáticas</option>
+                <option value="tecnologia">Tecnología</option>
+                <option value="geografia">Geografía</option>
+                <option value="cultura">Cultura general</option>
+            </select>
+
+            <button id="comenzar" class="boton principal">
+                Comenzar reto <span>→</span>
+            </button>
+
+            <p id="error-inicio" class="error" role="alert"></p>
+            <div class="datos-inicio">
+                <span>!15 segundos por pregunta!</span>
+                <span> <bold>100 puntos por acierto</bold></span>
+            </div>
+        </section>
+
+        <section id="pantalla-juego" class="pantalla oculta">
+            <div class="fila-superior">
+                <span id="saludo-jugador"></span>
+                <span id="numero-pregunta" class="etiqueta">Pregunta 1</span>
+            </div>
+
+            <div class="marcador">
+                <div>
+                    <span class="texto-suave">PUNTOS</span>
+                    <strong id="puntos">0</strong>
+                </div>
+                <div class="reloj">
+                    <span>⏱</span>
+                    <strong id="tiempo">15</strong>
+                    <small>segundos</small>
+                </div>
+            </div>
+
+            <div class="barra-fondo">
+                <div id="barra-progreso"></div>
+            </div>
+
+            <p id="categoria-actual" class="categoria-actual"></p>
+            <h2 id="pregunta" class="pregunta">Cargando pregunta...</h2>
+
+            <div id="opciones" class="opciones"></div>
+            <p id="mensaje" class="mensaje" aria-live="polite"></p>
+
+            <button id="siguiente" class="boton principal oculta">
+                Siguiente pregunta →
+            </button>
+
+            <button id="salir" class="boton secundario">
+                Volver al inicio
+            </button>
+        </section>
+
+        <section id="pantalla-resultados" class="pantalla oculta">
+            <div class="trofeo">🏆</div>
+            <span class="etiqueta">RETO COMPLETADO</span>
+            <h2 id="titulo-resultado">¡Buen trabajo!</h2>
+            <p id="resumen-resultado" class="descripcion"></p>
+
+            <div class="resultado-grande">
+                <span id="porcentaje">0%</span>
+                <p>Porcentaje de aciertos</p>
+            </div>
+
+            <div class="estadisticas">
+                <div>
+                    <strong id="total-correctas">0</strong>
+                    <span>Correctas</span>
+                </div>
+                <div>
+                    <strong id="total-incorrectas">0</strong>
+                    <span>Incorrectas</span>
+                </div>
+                <div>
+                    <strong id="puntos-finales">0</strong>
+                    <span>Puntos</span>
+                </div>
+            </div>
+
+            <button id="jugar-otra-vez" class="boton principal">
+                Jugar otra vez ↻
+            </button>
+            <button id="ir-inicio" class="boton secundario">
+                Cambiar jugador o categoría
+            </button>
+        </section>
+
+        <footer> ¡Cada pregunta es una oportunidad para aprender!</footer>
+    </main>
+
+    <script src="juego.js"></script>
+</body>
+</html>
